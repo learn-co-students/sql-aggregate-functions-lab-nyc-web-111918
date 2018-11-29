@@ -1,5 +1,5 @@
+require "pry"
 require "spec_helper"
-
 
 describe "aggregate functions sql" do
   before do
@@ -27,11 +27,13 @@ describe "aggregate functions sql" do
   end
   describe "#total_tardies_for_all_students" do
     it 'finds the total amount of tardies for all students' do
+      # binding.pry
       expect(@db.execute(total_tardies_for_all_students)).to eq([[49]])
     end
   end
   describe "#average_gpa_for_9th_grade" do
     it 'find the average gpa for 9th grade' do
+      # binding.pry
       expect(@db.execute(average_gpa_for_9th_grade).first.first).to be_within(0.0001).of(3.3)
     end
   end
